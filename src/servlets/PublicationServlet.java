@@ -73,6 +73,7 @@ public class PublicationServlet extends HttpServlet {
 			stmt.setInt(1,(Integer)session.getAttribute("usid"));
 			stmt.setInt(2, option);
 			stmt.setString(3,upTextText);
+			stmt.setString(4,"uknown");
 			stmt.executeUpdate();
 			stmt.close();
 			connection.close();
