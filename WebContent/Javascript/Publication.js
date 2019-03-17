@@ -57,3 +57,7 @@ function dofetch(){
 		})
 }
 
+$("button1").addEventListener("click", UpText);
+$("button2").addEventListener("click", UpImage);
+$("button3").addEventListener("click", UpVideo);
+
