@@ -70,8 +70,15 @@ public class PublicationServlet extends HttpServlet {
 			System.out.print("Text publication");
 			String upTextText = request.getParameter("upTextText");
 			stmt = connection.prepareStatement(prop.getValue("query_insertPost"));
-			stmt.setString(1,upTextText);
-			stmt.execute();
+			stmt.setInt(1,(Integer)session.getAttribute("usid"));
+			stmt.setInt(2, option);
+			stmt.setString(3,upTextText);
+			stmt.executeUpdate();
+			stmt.close();
+			connection.close();
+			resp.setStatus(200);
+			resp.setMessage("Operation Successful.");
+			response.getWriter().print(objMapper.writeValueAsString(resp));
 			break;
 		case 2:
 			break;
